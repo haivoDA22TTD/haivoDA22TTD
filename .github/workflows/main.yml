@@ -1,11 +1,11 @@
 name: Generate Snake
 
-# Control when the action will run
+# Controls when the action will run
 on:
   schedule:
-    # This cron job runs every 6 hours
+    # Cron job to run every 6 hours
     - cron: "0 */6 * * *"
-  workflow_dispatch: # Allows the action to be triggered manually
+  workflow_dispatch:  # Allows the action to be triggered manually
 
 permissions:
   contents: write  # Ensure the action has permission to write to the repository
@@ -22,20 +22,27 @@ jobs:
       - uses: Platane/snk@master
         id: snake-gif
         with:
-          github_user_name: haivoDA22TTD  
+          github_user_name: haivoDA22TTD  # Your GitHub username
           gif_out_path: dist/github-contribution-grid-snake.gif  # Path where the gif will be saved
           svg_out_path: dist/github-contribution-grid-snake.svg  # Path where the SVG will be saved
 
       # Show the status of the build for debugging purposes
       - run: git status
 
-      # Push the generated files back to the repository (in the 'output' branch)
-      - name: Push changes
-        uses: ad-m/github-push-action@v2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Use the GitHub token for authentication
-          branch: output  # Push the generated files to an 'output' branch (it won't affect the main branch)
-          force: true
+      # Set the gif path to environment variable
+      - name: Set gif path to environment variable
+        run: echo "GIF_PATH=dist/github-contribution-grid-snake.gif" >> $GITHUB_ENV
+
+      # Commit and push the changes to the 'output' branch
+      - name: Push changes with git
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add dist/github-contribution-grid-snake.gif dist/github-contribution-grid-snake.svg
+          git commit -m "Add contribution snake gif"
+          git push origin output  # Push changes to the 'output' branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Deploy to GitHub Pages (optional)
       - name: Deploy to GitHub Pages
