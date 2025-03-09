@@ -1,19 +1,26 @@
 import os
-from PIL import Image, ImageDraw, ImageFont
+import random
+from PIL import Image, ImageDraw
 
-# Đảm bảo thư mục dist/ tồn tại
 if not os.path.exists('dist'):
     os.makedirs('dist')
 
-# Tạo một số khung hình giả sử (chỉ là ví dụ)
-frames = []  # Đây sẽ là danh sách chứa các khung hình của mưa sao băng
+frames = []
+width, height = 500, 500
 
-# Giả sử bạn đang tạo ảnh từ các khung hình đơn giản
-for i in range(10):
-    img = Image.new('RGB', (500, 500), color=(255, 255, 255))
-    d = ImageDraw.Draw(img)
-    d.text((10, 10), f"Frame {i}", fill=(0, 0, 0))
+# Tạo khung hình giả lập mưa sao băng
+for i in range(30):  # Tạo 30 khung hình
+    img = Image.new('RGB', (width, height), color=(0, 0, 0))
+    draw = ImageDraw.Draw(img)
+
+    # Vẽ sao băng ngẫu nhiên
+    for _ in range(5):  # 5 sao băng trong mỗi khung hình
+        x_start = random.randint(0, width)
+        y_start = random.randint(0, height // 2)
+        length = random.randint(50, 150)
+        draw.line([x_start, y_start, x_start + length, y_start + length], fill="white", width=2)
+    
     frames.append(img)
 
-# Lưu file GIF vào thư mục dist/
+# Lưu file GIF
 frames[0].save('dist/meteor_shower.gif', save_all=True, append_images=frames[1:], duration=100, loop=0)
