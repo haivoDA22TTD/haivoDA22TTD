@@ -16,4 +16,4 @@
 
 
 # Meteor Shower Effect
-![Meteor Shower](dist/meteor_shower.gif)
+![Meteor Shower](dist/meteor_shower.gif.gif)
