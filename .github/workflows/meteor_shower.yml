@@ -36,6 +36,7 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add dist/meteor_shower.gif  # Thêm ảnh GIF vào Git
-          git diff --quiet || git commit -m "Add Meteor Shower GIF" && git push origin main
+          git commit -m "Add Meteor Shower GIF"
+          git push https://github.com/${{ github.repository }} HEAD:main  # Sử dụng URL với GITHUB_TOKEN
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Sử dụng GITHUB_TOKEN cho quyền truy cập   
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Sử dụng GITHUB_TOKEN cho quyền truy cập
