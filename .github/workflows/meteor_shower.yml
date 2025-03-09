@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout repository để lấy mã nguồn
+      # Checkout repository
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -28,7 +28,7 @@ jobs:
       # Tạo GIF mưa sao băng từ script Python
       - name: Generate Meteor Shower GIF
         run: |
-          python scripts/create_meteor_shower.py  # Chạy script Python từ thư mục scripts
+          python scripts/create_meteor_shower.py  # Đảm bảo đúng đường dẫn tới file
 
       # Kiểm tra kết quả và push ảnh GIF lên repository
       - name: Push GIF to repository
