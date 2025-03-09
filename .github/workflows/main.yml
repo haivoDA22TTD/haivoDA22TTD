@@ -32,11 +32,12 @@ jobs:
 
       # Push the changes to the repository
       - name: Push changes
-        uses: ad-m/github-push-action@v2
+        uses: ad-m/github-push-action@master  # Hoặc một phiên bản khác
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main  # Ensure you're pushing to the correct branch
+          branch: main  # Đảm bảo bạn đang push vào nhánh main
           force: true
+
 
       # Deploy to GitHub Pages
       - uses: crazy-max/ghaction-github-pages@v2.1.3
