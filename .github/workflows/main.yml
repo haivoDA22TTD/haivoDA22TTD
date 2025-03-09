@@ -52,3 +52,5 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # snake
+          ![snake gif](https://github.com/haivoDA22TTD/haivoDA22TTD/blob/output/github-contribution-grid-snake.gif)
