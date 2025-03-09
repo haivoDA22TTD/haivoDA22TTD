@@ -30,8 +30,8 @@ jobs:
       # Show the status of the build. Makes it easier for debugging (if there's any issues).
       - run: git status
 
-      # Set an environment variable to pass the value to the next step (previously done with set-output)
-      - name: Set the gif path to environment variable
+      # Set the gif path to environment variable (replacing set-output)
+      - name: Set gif path to environment variable
         run: echo "GIF_PATH=dist/github-contribution-grid-snake.gif" >> $GITHUB_ENV
 
       # Push the changes to the repository
@@ -54,4 +54,3 @@ jobs:
       # Example of using the environment variable set earlier
       - name: Use gif path
         run: echo "The gif is saved at ${{ env.GIF_PATH }}"
-
