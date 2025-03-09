@@ -1,33 +1,19 @@
-from PIL import Image, ImageDraw
-import random
+import os
+from PIL import Image, ImageDraw, ImageFont
 
-# Kích thước của ảnh (tương tự kích thước biểu đồ đóng góp)
-width, height = 400, 400
-background_color = (0, 0, 0)  # Màu nền là đen
-meteor_color = (255, 255, 255)  # Màu của sao băng là trắng
+# Đảm bảo thư mục dist/ tồn tại
+if not os.path.exists('dist'):
+    os.makedirs('dist')
 
-# Số lượng sao băng sẽ xuất hiện
-num_meteors = 30
+# Tạo một số khung hình giả sử (chỉ là ví dụ)
+frames = []  # Đây sẽ là danh sách chứa các khung hình của mưa sao băng
 
-# Tạo các frame cho GIF
-frames = []
+# Giả sử bạn đang tạo ảnh từ các khung hình đơn giản
+for i in range(10):
+    img = Image.new('RGB', (500, 500), color=(255, 255, 255))
+    d = ImageDraw.Draw(img)
+    d.text((10, 10), f"Frame {i}", fill=(0, 0, 0))
+    frames.append(img)
 
-for i in range(20):  # Tạo 20 frame GIF
-    frame = Image.new("RGB", (width, height), background_color)
-    draw = ImageDraw.Draw(frame)
-
-    # Vẽ sao băng ngẫu nhiên
-    for _ in range(num_meteors):
-        # Vị trí ngẫu nhiên của sao băng
-        x = random.randint(0, width)
-        y = random.randint(0, height)
-        length = random.randint(10, 30)  # Độ dài sao băng
-        speed = random.randint(1, 5)  # Tốc độ sao băng
-        # Vẽ sao băng
-        for j in range(length):
-            draw.line([(x + j * speed, y - j * speed), (x + (j + 1) * speed, y - (j + 1) * speed)], fill=meteor_color, width=2)
-
-    frames.append(frame)
-
-# Lưu các frame dưới dạng GIF động
+# Lưu file GIF vào thư mục dist/
 frames[0].save('dist/meteor_shower.gif', save_all=True, append_images=frames[1:], duration=100, loop=0)
