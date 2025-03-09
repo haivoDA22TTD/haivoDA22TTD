@@ -10,32 +10,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout repository
+      # Checkout repository để lấy mã nguồn
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Cài đặt Python và các thư viện cần thiết
+      # Cài đặt Python
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
 
+      # Cài đặt các dependencies Python (ví dụ: Pillow)
       - name: Install dependencies
         run: |
           pip install pillow
 
-      # Tạo GIF mưa sao băng
+      # Tạo GIF mưa sao băng từ script Python
       - name: Generate Meteor Shower GIF
         run: |
-          python scripts/create_meteor_shower.py  # Cập nhật lại đường dẫn nếu file trong thư mục con
+          python scripts/create_meteor_shower.py  # Chạy script Python từ thư mục scripts
 
-      # Kiểm tra kết quả và push ảnh GIF
+      # Kiểm tra kết quả và push ảnh GIF lên repository
       - name: Push GIF to repository
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git add dist/meteor_shower.gif
+          git add dist/meteor_shower.gif  # Thêm ảnh GIF vào Git
           git commit -m "Add Meteor Shower GIF"
           git push origin main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Sử dụng GITHUB_TOKEN cho quyền truy cập
