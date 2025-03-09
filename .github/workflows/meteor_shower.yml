@@ -27,7 +27,7 @@ jobs:
       # Tạo GIF mưa sao băng
       - name: Generate Meteor Shower GIF
         run: |
-          python create_meteor_shower.py
+          python create_meteor_shower.py  # Nếu file ở thư mục gốc
 
       # Kiểm tra kết quả và push ảnh GIF
       - name: Push GIF to repository
