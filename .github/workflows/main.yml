@@ -7,13 +7,15 @@ on:
     - cron: "0 */6 * * *"
   workflow_dispatch: # Allows the action to be triggered manually
 
+permissions:
+  contents: write  # Cấp quyền ghi cho contents của repository
+
 jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks out the repo so your job can access it
       - uses: actions/checkout@v3
@@ -23,7 +25,6 @@ jobs:
         id: snake-gif
         with:
           github_user_name: haivoDA22TTD
-          # These next 2 lines generate the files on a branch called "output". This keeps the main branch from cluttering up.
           gif_out_path: dist/github-contribution-grid-snake.gif
           svg_out_path: dist/github-contribution-grid-snake.svg
 
@@ -38,7 +39,7 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master  # Or use a different version if this doesn't work
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Sử dụng GITHUB_TOKEN có quyền ghi
           branch: main  # Ensure you're pushing to the correct branch
           force: true
 
