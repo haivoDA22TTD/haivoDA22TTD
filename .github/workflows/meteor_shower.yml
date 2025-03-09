@@ -1,0 +1,41 @@
+name: Generate Meteor Shower Effect
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # Lập lịch chạy mỗi 6 giờ
+  workflow_dispatch:  # Cho phép trigger thủ công từ tab Actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Cài đặt Python và các thư viện cần thiết
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install pillow
+
+      # Tạo GIF mưa sao băng
+      - name: Generate Meteor Shower GIF
+        run: |
+          python create_meteor_shower.py
+
+      # Kiểm tra kết quả và push ảnh GIF
+      - name: Push GIF to repository
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add dist/meteor_shower.gif
+          git commit -m "Add Meteor Shower GIF"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
