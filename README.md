@@ -18,5 +18,4 @@
 ## Meteor Shower Effect
 ![Meteor Shower](dist/meteor_shower.gif.gif)
 
-## Lightning Effect
-![Lightning Effect](assets/giphy.gif)
+
