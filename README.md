@@ -19,9 +19,6 @@
 ![Meteor Shower](dist/meteor_shower.gif.gif)
 
 ## Hiển thị số liệu thống kê cá nhân
- ![haivoDA22TTD Github stats](https://github-readme-stats.vercel.app/api?username=haivoDA22TTD&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage)
-
-
- ![haivoDA22TTD GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra&show_icons=true&theme=tokyonight)
+ ![haivoDA22TTD GitHub stats](https://github-readme-stats.vercel.app/api?username=haivoDA22TTD&show_icons=true&theme=tokyonight)
 
 
