@@ -21,5 +21,5 @@
 ## Hiển thị số liệu thống kê cá nhân
  ![haivoDA22TTD GitHub stats](https://github-readme-stats.vercel.app/api?username=haivoDA22TTD&show_icons=true&theme=tokyonight)
 
-## 
-[![haivoDA22TTD](https://github-readme-stats.vercel.app/api/top-langs/?username=haivoDA22TTD&layout=pie)](https://github.com/haivoDA22TTD/github-readme-stats)
+## Ngôn ngữ sử dụng
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=haivoDA22TTD&layout=donut-vertical)](https://github.com/haivoDA22TTD/github-readme-stats)
