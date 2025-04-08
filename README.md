@@ -19,6 +19,7 @@
 ![Meteor Shower](dist/meteor_shower.gif.gif)
 
 ## Số liệu thống kê cá nhân
+   ![haivoDA22TTD GitHub stats](https://github-readme-stats.vercel.app/api?username=haivoDA22TTD&show_icons=true&theme=tokyonight)
 
 ## Ngôn ngữ sử dụng
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=haivoDA22TTD&layout=compact)
