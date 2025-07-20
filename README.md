@@ -44,7 +44,7 @@
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/>
   </a>
 <a href="https://spring.io/projects/spring-boot" target="_blank" rel="noreferrer">
-  <img src="assets/Spring%20Boot.png" alt="Spring Boot" width="40" height="40"/>
+  <img src="assets/Spring%20Boot.png" alt="Spring Boot" width="50" height="50"/>
 </a>
   <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">
     <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/>
